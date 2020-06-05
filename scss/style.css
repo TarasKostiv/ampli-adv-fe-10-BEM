@@ -102,7 +102,7 @@ button {
 }
 
 .hero {
-  height: calc(100% - (122px + 110px));
+  height: calc(99% - (122px + 110px));
   padding-top: 60px;
 }
 
