@@ -37,6 +37,14 @@
           flex-direction: column;
 }
 
+.f-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -73,6 +81,7 @@ button {
 .wrapper {
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb736), to(rgba(255, 255, 255, 0))), url("../img/bc.jpg");
   background-image: linear-gradient(180deg, #ffb736 0%, rgba(255, 255, 255, 0) 100%), url("../img/bc.jpg");
   width: 100%;
@@ -93,6 +102,23 @@ button {
   font-size: 2.1rem;
 }
 
+.menu__burger-btn {
+  -webkit-transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform, 0.2s -webkit-transform;
+}
+
+.menu__burger-btn:hover {
+  -webkit-transform: scale();
+          transform: scale();
+}
+
+.menu__burger-btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
 .menu__btn {
   font-size: 1.4rem;
   border: 1px solid white;
@@ -101,8 +127,27 @@ button {
   margin-right: 10px;
 }
 
+.menu__btn {
+  -webkit-transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform, 0.2s -webkit-transform;
+}
+
+.menu__btn:hover {
+  color: black;
+  background-color: white;
+  -webkit-transform: scale();
+          transform: scale();
+}
+
+.menu__btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
 .hero {
-  height: calc(100% - (122px + 110px));
+  height: calc(99% - (122px + 110px));
   padding-top: 60px;
 }
 
@@ -164,6 +209,24 @@ button {
   right: 14px;
 }
 
+.hero__submit-btn {
+  -webkit-transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s -webkit-transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform;
+  transition: 0.2s color, 0.2s background-color, 0.2s transform, 0.2s -webkit-transform;
+}
+
+.hero__submit-btn:hover {
+  color: black;
+  -webkit-transform: scale();
+          transform: scale();
+}
+
+.hero__submit-btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
 .hero__list,
 .menu__list {
   list-style: none;
@@ -207,4 +270,70 @@ button {
 .hero__link i,
 .menu__link i {
   font-size: 1.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .wrapper {
+    background-size: 220%;
+  }
+  .hero__lable-hero {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 12px;
+  }
+  .wrapper {
+    background-size: 440%;
+  }
+  .hero__search {
+    width: 365px;
+  }
+  .hero__list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .hero__submit-btn {
+    top: 19px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 10px;
+  }
+  .wrapper {
+    background-size: 440%;
+  }
+  .hero__lable-hero {
+    margin-bottom: 20px;
+  }
+  .hero__lable {
+    line-height: 100px;
+  }
+  .hero__search {
+    width: 300px;
+  }
+  .hero__list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .hero__submit-btn {
+    top: 19px;
+  }
 }

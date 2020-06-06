@@ -1,8 +1,17 @@
 @import "tool";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
+
+// Main variable
 $mainFontSize: 16px;
 $mainColor: white;
 $disableColor: #bdbdbd;
+
+// Meidia query variable
+$laptopBrakePoint: 1024px;
+$tabletBrakePoint: 768px;
+$mobileLBrakePoint: 425px;
+$mobileMBrakePoint: 375px;
+$mobileSBrakePoint: 320px;
 
 * {
   box-sizing: border-box;
@@ -39,6 +48,7 @@ button {
 .wrapper {
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-image: linear-gradient(
       180deg,
       #ffb736 0%,
@@ -53,8 +63,7 @@ button {
 // Menu
 
 .menu {
-  @extend .space-bt;
-  @extend .align-cnt;
+  @extend .space-bt, .align-cnt;
   width: 100%;
   color: $mainColor;
   padding: 30px;
@@ -66,6 +75,8 @@ button {
 
   &__burger-btn {
     font-size: 2.1rem;
+
+    @include elemHoverAndClick(null, null, null, null, 0.2s, null, 0.95);
   }
 
   &__btn {
@@ -74,13 +85,15 @@ button {
     padding: 7px 20px;
     border-radius: 50px;
     margin-right: 10px;
+
+    @include elemHoverAndClick(black, $mainColor, null, null, 0.2s, null, 0.95);
   }
 }
 
 // Hero
 
 .hero {
-  height: calc(100% - (122px + 110px));
+  height: calc(99% - (122px + 110px));
   padding-top: 60px;
 
   @extend .align-cnt, .fd-clm;
@@ -132,6 +145,8 @@ button {
     position: absolute;
     top: 14px;
     right: 14px;
+
+    @include elemHoverAndClick(black, null, null, null, 0.2s, null, 0.95);
   }
 }
 
@@ -158,6 +173,84 @@ button {
 
     i {
       font-size: 1.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tabletBrakePoint) {
+  html {
+    font-size: 14px;
+  }
+
+  .wrapper {
+    background-size: 220%;
+  }
+
+  .hero {
+    &__lable-hero {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileLBrakePoint) {
+  html {
+    font-size: 12px;
+  }
+
+  .wrapper {
+    background-size: 440%;
+  }
+
+  .hero {
+    &__search {
+      width: $mobileLBrakePoint - 60px;
+    }
+
+    &__list {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &__submit-btn {
+      top: 19px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileSBrakePoint) {
+  html {
+    font-size: 10px;
+  }
+
+  .wrapper {
+    background-size: 440%;
+  }
+
+  .hero {
+    &__lable-hero {
+      margin-bottom: 20px;
+    }
+
+    &__lable {
+      line-height: 100px;
+    }
+
+    &__search {
+      width: $mobileSBrakePoint - 20px;
+    }
+
+    &__list {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &__submit-btn {
+      top: 19px;
     }
   }
 }
